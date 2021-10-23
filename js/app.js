@@ -32,9 +32,9 @@ const displayData = data => {
     datas.forEach(element => {
         console.log(element)
         //variables for output 
-        const bookName = ifUndefined(element.title);
+        const bookName = element.title;
         const author_name = ifUndefined(element.author_name);
-        const firstPublish = ifUndefined(element.first_publish_year);
+        const firstPublish = element.first_publish_year;
         const publisher_name = ifUndefined(element.publisher);
         const cover_i = element.cover_i;
         const imgUrl = imgHandler(cover_i);
@@ -89,7 +89,7 @@ const imgHandler = (cover_i) => {
 };
 //handling undefined output
 const ifUndefined = (output) => {
-    if (output == undefined) {
+    if (output == undefined || output == '') {
         return 'not found';
     } else {
         return output[0];
